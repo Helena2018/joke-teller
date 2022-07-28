@@ -7,7 +7,7 @@ const VoiceRSS={speech:function(e){this._validate(e),this._request(e)},_validate
 // Disable/Enable button
 
 function toggleButton() {
-  button.disable = !button.disable
+  button.disabled = !button.disabled;
 }
 
 // Passing Joke to VoiceRSS API
@@ -36,7 +36,10 @@ async function getJokes() {
     } else {
       joke = data.joke;
     }
+    // Text to Speech
     tellMe(joke);
+    // Disable button
+    toggleButton();
   } catch(error) {
     // Catch Errors Here
     console.log('Whoops', error)
